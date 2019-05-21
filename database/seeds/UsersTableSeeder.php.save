@@ -1,0 +1,17 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class UsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+	array('name'=>str_random(10),'email'=>str_random(10).'@gmail.com','age'=>str_random(10),'dob'=>date("y-m-d"),'phone'=>str_random(10),'religion'=>''str_random(10),'country'=>str_random(10),'state'=>str_random(10),'city'=>str_random(10),'profile_by'=>str_random(10),'education'=>str_random(10),'body_type'=>str_random(10),'marital_status'=>str_random(10),'height'=>str_random(10),'physical_status'=>str_random(10),'drink'=>str_random(10),'mother_tongue'=>str_random(10),'complexion'=>str_random(10),'weight'=>str_random(10),'blood_group'=>str_random(10),'sub_caste'=>str_random(10),'diet'=>str_random(10),'smoke'=>str_random(10),'annual_income'=>str_random(10),'education_detail'=>str_random(10),'father_occupation'=>str_random(10),'mother_occupation'=>str_random(10),'brothers'=>str_random(10),'sisters'=>str_random(10),'occupation'=>str_random(10),'birth_place'=>str_random(10),'raasi'=>str_random(10),'time_of_birth'=>str_random(10),'description'=>str_random(10),'email_verified_at'=>str_random(10),'password'=>str_random(10))
+    }
+}

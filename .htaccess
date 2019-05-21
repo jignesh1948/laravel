@@ -1,0 +1,43 @@
+# Deny access to .htaccess
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+
+# Deny access to files with extensions .ini, .psd, .log, .sh
+<FilesMatch "\.(ini|psd|log|sh|gitignore|gitattributes|env|examples|env.examples)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+		Options -Indexes
+    </IfModule>
+	Header set Access-Control-Allow-Origin "*"
+	
+	RewriteEngine On
+	
+    # Ignore Wordpress directory
+    RewriteCond $1 !^(blog)
+	#RewriteCond %{REQUEST_URI} !^/blog
+	
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+	RewriteRule ^index.php/(.*)$ /$1 [R=302,L]
+
+	#
+	RewriteBase /
+	RewriteRule ^index\.php$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.php [L]
+	
+</IfModule>
