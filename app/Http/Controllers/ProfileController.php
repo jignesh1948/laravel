@@ -14,7 +14,10 @@ class ProfileController extends Controller
     }
     public function singleProfile(Request $request,$id){
     	$data  = User::where("id",$id)->get()->first();
-    	dd($data);
+
+    	$phone = User::find(1)->Blodegroup;
+    	
+    	dd($phone);
     	return view('single_profile')->with(compact('data'));    
     }
 }
