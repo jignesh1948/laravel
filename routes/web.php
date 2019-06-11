@@ -12,7 +12,12 @@
 */
 
  
+
+Route::get('books','BookController@index');
+
 // Route::get('/', "ProfileController@index");
 Route::get('/profile/{id?}',"ProfileController@singleProfile");
 Route::get('/matches',"ProfileController@index");
+
+Route::get('/mongo',"ProfileController@mongotest");
   

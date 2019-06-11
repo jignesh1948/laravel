@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Religion extends Model
 {
-    //
-    protected $table = "religion";
+
+    protected $connection = 'mongodb';
+    protected $collection = 'Religion';
+    
+    //protected $table = "religion";
     // protected $primaryKey = 'religion';
 
-    protected $fillable = ['name','email'];
+    protected $fillable = [];
 
  
     public function photos()
